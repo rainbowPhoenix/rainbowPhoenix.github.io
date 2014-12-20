@@ -3,17 +3,18 @@ permalink:        pretty
 relative_permalinks: true
 
 # Setup
-title:            Poole
-tagline:          The Jekyll Butler
-url:              http://getpoole.com
+title:            Nick Tobey
+tagline:          Words arranged in a Meaningful Order
+url:              http://nicktobey.me
 paginate:         1
 baseurl:          /
 author:
-  name:           Mark Otto
-  url:            https://twitter.com/mdo
-  email:          markdotto@gmail.com
+  name:           Nick Tobey
+  url:            http://nicktobey.me
+  email:          ndtobey3@gmail.com
 
 # Custom vars
 version:          1.0.0
 github:
-  repo:           https://github.com/poole/poole
+  repo:           https://github.com/rainbowPhoenix/rainbowPhoenix.github.io
+

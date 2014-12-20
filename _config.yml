@@ -1,20 +1,26 @@
+# Dependencies
+markdown:            redcarpet
+highlighter:         pygments
+
 # Permalinks
-permalink:        pretty
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
 relative_permalinks: true
 
 # Setup
-title:            Nick Tobey
-tagline:          Words arranged in a Meaningful Order
-url:              http://nicktobey.me
-paginate:         1
-baseurl:          /
+title:               Nick Tobey
+tagline:             'Words Arranged in a Meaningful Pattern'
+description:         'The personal website of Nick Tobey'
+url:                 http://nicktobey.me
+baseurl:             /
+paginate:            5
+
+# About/contact
 author:
-  name:           Nick Tobey
-  url:            http://nicktobey.me
-  email:          ndtobey3@gmail.com
+  name:              Nick Tobey
+  url:               http://nicktobey.me
+  email:             ndtobey3@gmail.com
 
 # Custom vars
-version:          1.0.0
-github:
-  repo:           https://github.com/rainbowPhoenix/rainbowPhoenix.github.io
-
+version:             1.0.0

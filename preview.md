@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Weekly Update 0
+title: Weekly Update 0 - Looking Back and Forward
 short_title: Update 0
 show: false
 ---

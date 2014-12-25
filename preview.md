@@ -2,7 +2,7 @@
 layout: page
 title: Weekly Update #0: Looking Back and Forward
 short_title: Update #0
-show:false
+show: false
 ---
 
 For the last several years, I've had this tug in the back of my mind. "Get a website," it said. "You'll need it one day. In an age where nearly our entire visible identity is based on how we present ourselves online, how can you be complete without a website?" But it wasn't until I was filling out applications for research positions and internships when I realized how much I could really use one. A resume isn't much more than a dull summary of experiences, and when people and companies are asking for the infinite-canvas evolution of "fill this page with whatever you like," I'd have to be a idiot not to take advantage of it.

@@ -5,6 +5,9 @@ short_title: Update 0
 show: false
 ---
 
+
+
+
 **The History**
 
 I'm a gamer. It's a relatively recent change, but over the last year I've built a small collection of board games for my friends. (A collection that grew someone this morning.) So one of my major interests is how technology affects how we play games.

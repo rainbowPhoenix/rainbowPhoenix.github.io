@@ -5,14 +5,9 @@ short_title: Update 0
 show: false
 ---
 
-*1*
-**2**
-***3***
-# 4
-## 5
 
-
-**The History**
+The History
+###########
 
 I'm a gamer. It's a relatively recent change, but over the last year I've built a small collection of board games for my friends. (A collection that grew someone this morning.) So one of my major interests is how technology affects how we play games.
 
@@ -24,7 +19,8 @@ The second event was the approaching final exam for my Intro to Computer Securit
 
 Wizards' biggest obstacle was servers that didn't scale to accommodate large player loads. As the popularity of Magic grew, the cracks in their system grew. So while others blamed outdated software, or Wizard's effective monopoly on online collectible card games, or Wizards’ practice of only hiring local programmers, I wondered if the problem was the existence of the server itself. Could Mental Poker be applied to allow users to play complex games like Magic without the need for a central server to validate the gamestate?
 
-**The Idea**
+The Idea
+########
 
 Probably not.
 
@@ -38,7 +34,8 @@ The third and final event that occurred that month was a bursting bubble in the 
 
 This became the foundation of a project I obsessed over winter break that year. I later spun off into two projects: BitToken, a blockchain-based cryptosystem designed for trading typed assets, and Delectables, a platform for designing collectable games that used BitToken to verify ownership of game pieces and Mental Poker to conduct games in a decentralized manner.)
 
-**The Reality**
+The Reality
+###########
 
 This was a year ago. Last December I was so excited to get started, but a year later I have nothing to show for it. No prototypes, no code repositories, not even a nailed-down list of features to support. And to a certain extent, this was to be expected. I had little knowledge of the cryptography involved, and the project would be leagues more complex than anything I had done before. I knew out of the gate that this would be a research spike of astronomical proportions. I knew that even if I failed to make a workable product, the experience would leave me primed to take advantage of any work on distributed cryptographic systems that emerged in the meantime.
 
@@ -61,7 +58,8 @@ My second problem was a lack of accountability. If I failed to keep to any goals
 And giving Google recruiters a link to this site before it was even up? That's a stick if I’ve ever seen one.
 
 
-**The Project**
+The Project
+###########
 
 The solution to this problem was to define smaller projects that would not produce the full specification of BitToken and Delectibles, but would provide me with not only the experience I would need to tackle a more extensive project, but would produce something I could show for my effort.
 

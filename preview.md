@@ -47,7 +47,7 @@ For example, is it possible for a group of users to coordinate a tournament with
 
 Or another feature worth considering: In Magic and collectable games like it, players can buy booster packs, which contained random cards from a set. Unopened booster packs from the same set are indistinguishable, so Magic Online players use them as an alternate currency. Booster packs can be modeled as a cryptocurrency with one additional feature: they can be converted into a random selection of cards. Could BitToken support this type of conversion? If so, how?
 
-The more I dug, the more I saw that I wanted to do with this project. And it suffocated me. I knew no matter how I allocate my time, Delectables demanded more from me than I would be able to give it.
+The more I dug, the more I saw that I wanted to do with this project. And it suffocated me. I knew no matter how I allocate my time, BitToken and Delectables would demand more from me than I would be able to give it.
 
 In the spring I focused on my schoolwork, in the summer I focused on my summer job, and in the fall I focused on schoolwork again. And I don’t regret that decision. But I still failed to make time for a project that not only personally inspired me, and would give me a much-needed portfolio. And understanding why I failed to produce anything is what will help me make strides.
 
@@ -63,7 +63,7 @@ The Project
 
 The solution to this problem was to define smaller projects that would not produce the full specification of BitToken and Delectibles, but would provide me with not only the experience I would need to tackle a more extensive project, but would produce something I could show for my effort.
 
-I will force myself to make weekly updated on this site about these projects, what approaches I took, and what I learned. Each post will link to a github repo containing any code I wrote that week, regardless of whether or not I think it’s worthy of uploading for the world to see. If I put off publicly demonstrating my project code until I feel it’s presentable, it will never see the light of day. If I’m going to chronicle my entire experience, I need to push aside that conservative perfectionist habit.
+I will force myself to make weekly updates on this site about these projects, what approaches I took, and what I learned. Each post will link to a github repo containing any code I wrote that week, regardless of whether or not I think it’s worthy of uploading for the world to see. If I put off publicly demonstrating my project code until I feel it’s presentable, it will never see the light of day. If I’m going to chronicle my entire experience, I need to push aside that conservative perfectionist habit.
 
 So that’s my goal now: Demonstrate (as much to myself as to anyone else) what I can learn and do. The only way to fail is to not produce anything.
 

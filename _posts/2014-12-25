@@ -1,0 +1,50 @@
+---
+layout: post
+title: Weekly Update 0 - Looking Back and Forward
+short_title: Update 0
+show: true
+---
+
+
+The History
+-----------
+
+I'm a gamer. It's a relatively recent change, but over the last year I've built a small collection of board games for my friends. (A collection that grew something this morning.) So one of my major interests is how technology affects how we play games.
+Around December of 2013, three things happened in approximate proximity to each other:
+The first was a major server problem during the Magic: The Gathering Online Championship Series championship event. The all-day tournament drew over 300 players who competed for an invitation to the Magic Online Championships. In the eighth of nine rounds, the server crashed, removing some players from their matches and eventually ending the entire tournament prematurely. The day after, eight hours into a Pro Tour Qualifier event with over 700 players, Magic Online crashed again. In both cases, owning company Wizards of the Coast's response was to refund players their entry fee and reschedule, wasting thousands of person-hours of the players involved. In the fallout of this catastrophic failure of the Magic Online software, Wizards disabled large events for half a year while they worked on the server.
+The second event was the approaching final exam for my Intro to Computer Security class at UNC. I was trying to apply what I had learned by reading up on the Mental Poker Problem. In brief, the Mental Poker Problem concerns how to play a game involving randomness and hidden information over a network without the need of a trusted third party. (The name derives from Mental Chess, a variant of chess played without a board where the players recite their movements to each other and keep track of the pieces in their head. This is possible because in chess, moves are deterministic and all information available to all players, so a move can be instantly validated as legal or not. Mental Poker without a computer would be a lot more troublesome.)
+Wizards' biggest obstacle was servers that didn't scale to accommodate large player loads. As the popularity of Magic grew, the cracks in their system grew. So while others blamed outdated software, or Wizard's effective monopoly on online collectible card games, or Wizards’ practice of only hiring local programmers, I wondered if the problem was the existence of the server itself. Could Mental Poker be applied to allow users to play complex games like Magic without the need for a central server to validate the gamestate?
+
+The Idea
+--------
+
+Probably not.
+As my reading uncovered, existing Mental Poker protocols are not designed for the large variety of actions available in games like Magic: actions like returning cards on the table to a player's hand, searching a player's deck for a specific card, revealing the contents of the deck to a single player, and so on. And they are efficient only when viewed with extreme optimism. But the research yielded possibilities.
+Magic Online had its own microcosm of an economy, full of collectors and gamblers and speculators in an online marketplace. But no one truly owned the assets they were investing in; they were all data on Wizards' servers, and if Wizards of the Coast decided to close up shop and shut them down, then these players would lose everything. (Certainly Wizards has no intention of doing something that would destroy all confidence in the company, and they aren't showing any signs of financial distress, but this dependence on servers staying online doubtlessly discourages players from investing in new games.)
+I wondered whether there was a way for the players to prove ownership of their digital collections without connecting to a trusted server.  A system like this could even permit players to trade in-game items outside of official channels, allowing them to more easily sell these items for real money, or trade for items from a completely different game. The implications weren’t just limited to gaming. I realized I was trying to design a decentralized database for management of digital goods, be it game items or licenses or e-books, or more.
+The third and final event that occurred that month was a bursting bubble in the bitcoin speculation market. After the exchange rate of the cryptocurrency reached an all-time high, the price plummeted to half that in a matter of days. Curious about the inner workings of Bitcoin and blockchain cryptography, I read the Bitcoin white paper.  I was not interested in bitcoin as a currency, and the crash was painting a strong sign that it wouldn’t work out as a bank account or means of exchange (especially for someone who knew next to nothing about market forces, like me.)  But I was interested in Bitcoin as a technology, and reading the white paper I came to understand that Bitcoin was attempting to solve the exact same problem I was. Provided the ability to differentiate between sets of coins (which several existing projects, such as Colored Coins, are already attempting to do), Bitcoin becomes a generic decentralized means of digital asset management. 
+This became the foundation of a project I obsessed over winter break that year. I later spun off into two new projects: BitToken, a blockchain-based cryptosystem designed for trading typed assets, and Delectables, a platform for designing collectable games that used BitToken to verify ownership of game pieces and Mental Poker to conduct games in a decentralized manner.)
+
+The Reality
+-----------
+
+This was a year ago. Last December I was so excited to get started, but a year later I have nothing to show for it. No prototypes, no code repositories, not even a nailed-down list of features to support. And to a certain extent, this was to be expected. I had little knowledge of the cryptography involved, and the project would be leagues more complex than anything I had done before. I knew out of the gate that this would be a research spike of astronomical proportions. I knew that even if I failed to make a workable product, the experience would leave me primed to take advantage of any work on distributed cryptographic systems that emerged in the meantime.
+But still, nothing? How could this happen?
+As I pondered how to approach this problem, I gradually accumulated more goals and requirements, which I realized too late was a big mistake. Feature creep hit me before I had drafted a single spec.
+For example, is it possible for a group of users to coordinate a tournament without outside assistance? (a problem less trivial than it seems, since players could contest the outcome of an individual match.) While this problem was unrelated to the initial problem of verifying ownership, it was worth considering if I wanted to really push serverless games.
+Or another feature worth considering: In Magic and collectable games like it, players can buy booster packs, which contained random cards from a set. Unopened booster packs from the same set are indistinguishable, so Magic Online players use them as an alternate currency. Booster packs can be modeled as a cryptocurrency with one additional feature: they can be converted into a random selection of cards. Could BitToken support this type of conversion? If so, how?
+The more I dug, the more I saw that I wanted to do with this project. And it suffocated me. I knew no matter how I allocate my time, BitToken and Delectables would demand more from me than I would be able to give it.
+In the spring I focused on my schoolwork, in the summer I focused on my summer job, and in the fall I focused on schoolwork again. And I don’t regret that decision. But I still failed to make time for a project that not only personally inspired me, and would give me a much-needed portfolio. And understanding why I failed to produce anything is what will help me make strides.
+Firstly, it was clear I had bitten off more than I could chew. Even if my goals were well-defined, they were broad and varied, without much of an existing platform to work from, so I had no place to start. At one point I discovered the Ethereum platform (http://www.ethereum.org), and suspected that it might be exactly what I needed.  My mission statement became "Learn Ethereum", a nebulous and distracting goal, especially given that Ethereum was still in beta at the time, and trying to work Ethereum ended up taking up my time and producing nothing.
+My second problem was a lack of accountability. If I failed to keep to any goals I had set (not that I had taken the initiative to make goals either) I faced no consequences for my failure, and no one would even know that I had tried. I needed a stick.
+And giving Google recruiters a link to this site before it was even up? That's a stick if I’ve ever seen one.
+
+
+The Project
+-----------
+
+The solution to this problem was to define smaller projects that would not produce the full specification of BitToken and Delectibles, but would provide me with not only the experience I would need to tackle a more extensive project, but would produce something I could show for my effort.
+I will force myself to make weekly updates on this site about these projects, what approaches I took, and what I learned. Each post will link to a github repo containing any code I wrote that week, regardless of whether or not I think it’s worthy of uploading for the world to see. If I put off publicly demonstrating my project code until I feel it’s presentable, it will never see the light of day. If I’m going to chronicle my entire experience, I need to push aside that conservative perfectionist habit.
+So that’s my goal now: Demonstrate (as much to myself as to anyone else) what I can learn and do. The only way to fail is to not produce anything.
+
+**Next time**: I break up the monolithic concepts of BitToken and Delectibles into smaller, manageable projects, and I pick one.

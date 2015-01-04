@@ -103,3 +103,27 @@ With all this research and planning behind us, let’s start writing code. We ne
 The rules file is currently a coffeescript script that is loaded and executed in a special environment. The major downside is that this requires that the rules file be trusted, so this is by no means a final solution.
 
 What’s the most important part of a game? The players. So let’s tell the engine about the players.
+
+
+``` coffescript
+X = new Player(“X”)
+O = new Player(“O”)
+```
+
+The string parameters are ids that we can use to reference the players later, since the variables X and O will only exist in this local scope.
+
+Like all objects in coffeescript, X and O can have arbitrary properties defined on them. We can do that now:
+
+``` coffeescript
+X.opponent = O
+O.opponent = X
+```
+
+There is no builtin way to dictate turn order, since not all games settle for something as simple as “clockwise around the table.” We will handle turn order by having each player pass the baton to the player listed as their opponent. (We’ll get to that in a bit.)
+
+``` coffeescript
+Game.setPlayers [X, O]
+Game.setActivePlayer X
+```
+
+The goal is to create a game rules object that contains all the information necessary to govern a game. These two commands configure the rules object with a list of players and the starting player.  Instead of making these calls, the rules script could also return a dictionary with these values. (Both are perfectly acceptable.)

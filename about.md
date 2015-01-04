@@ -39,3 +39,22 @@ This notation allows us to completely describe any game in a table, merely by li
 
 What is practical is calculating the part of the table that is immediately relevant for a given game state. Let's say that we have a tic-tac-toe board in the following position:
 
+```
+X| |X
+- - -
+ |X|O
+- - -
+ | |O
+
+
+board = {X: [[0,0], [0,2], [1,1]], O: [[1,2], [2,2]]}
+activePlayer = 'O'
+
+We could create a table mapping each legal move to a transformation function and the resulting game state:
+
+Choice   Transformation Function            New active player    New Game State
+[0,1]        (board) -> board.O.push [0,1]    X                    {X: [[0,0], [0,2], [1,1]], O: [[1,2], [2,2], [0,1]]}
+[1,0]        (board) -> board.O.push [1,0]    X                    {X: [[0,0], [0,2], [1,1]], O: [[1,2], [2,2], [0,2]]}
+[2,0]        (board) -> board.O.push [2,0]    X                    {X: [[0,0], [0,2], [1,1]], O: [[1,2], [2,2], [1,2]]}
+[2,1]        (board) -> board.O.push [2,1]    X                    {X: [[0,0], [0,2], [1,1]], O: [[1,2], [2,2], [2,2]]}
+```

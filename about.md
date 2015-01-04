@@ -39,11 +39,13 @@ This notation allows us to completely describe any game in a table, merely by li
 
 What is practical is calculating the part of the table that is immediately relevant for a given game state. Let's say that we have a tic-tac-toe board in the following position:
 
+```
 X| |X
 - - -
  |X|O
 - - -
  | |O
+```
 
 board = {X: [[0,0], [0,2], [1,1]], O: [[1,2], [2,2]]}
 activePlayer = 'O'
@@ -128,7 +130,7 @@ The goal is to create a game rules object that contains all the information nece
 
 
 
-
+``` coffeescript
 exports = exports ? this
 
 global = (name, data) ->
@@ -136,10 +138,4 @@ global = (name, data) ->
     
 global "global", global
 
-# Frankly, I feel this should be a builtin feature of coffeescript. It's simple enough to implement on my own (only being four short lines), but it's expected behavior.
-
-#Some people propose using @ to make a global variable, but this only works because @ is a shorthand for "this." everywhere, and when you're not in a coffeescript function, this refers to the window.
-
-I wanted to use “export” instead, but export is an outdated javascript builtin, and thus can’t be used as a variable name.
-
-A note on the potential powers of prototypal inheritance.
+```

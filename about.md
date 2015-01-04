@@ -45,7 +45,7 @@ X| |X
  |X|O
 - - -
  | |O
-```
+
 
 board = {X: [[0,0], [0,2], [1,1]], O: [[1,2], [2,2]]}
 activePlayer = 'O'
@@ -57,7 +57,7 @@ Choice   Transformation Function            New active player    New Game State
 [1,0]        (board) -> board.O.push [1,0]    X                    {X: [[0,0], [0,2], [1,1]], O: [[1,2], [2,2], [0,2]]}
 [2,0]        (board) -> board.O.push [2,0]    X                    {X: [[0,0], [0,2], [1,1]], O: [[1,2], [2,2], [1,2]]}
 [2,1]        (board) -> board.O.push [2,1]    X                    {X: [[0,0], [0,2], [1,1]], O: [[1,2], [2,2], [2,2]]}
-
+```
 Viewing games as a group of generated tables like this suggests an API: Instead of listing every possible game state, a game descriptor file needs to be able to do one of the following:
 
 Option 1: (Functional Programming Approach)

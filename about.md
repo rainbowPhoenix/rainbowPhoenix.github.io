@@ -58,3 +58,48 @@ Choice   Transformation Function            New active player    New Game State
 [2,0]        (board) -> board.O.push [2,0]    X                    {X: [[0,0], [0,2], [1,1]], O: [[1,2], [2,2], [1,2]]}
 [2,1]        (board) -> board.O.push [2,1]    X                    {X: [[0,0], [0,2], [1,1]], O: [[1,2], [2,2], [2,2]]}
 ```
+Viewing games as a group of generated tables like this suggests an API: Instead of listing every possible game state, a game descriptor file needs to be able to do one of the following:
+
+Option 1: (Functional Programming Approach)
+- For a given game state, enumerate the possible Options and assign each one a unique id.
+- For a given game state and an option id, check whether the given option is possible and returns a new game state object that shows the
+
+Alternatively the descriptor file can create and store a single game state, and:
+
+Option 2: (Imperitive Programming Approach)
+- For a given game state, enumerate the possible Options and assign each one a unique id.
+- For a given game state, check whether the given option is possible and transforms applies the option to the game state, transforming it.
+
+What’s so deceptive here is that at a first glance, it doesn’t even seem like there’s a choice to be made.  In my initial draft, the rules script created the functions and data structures that governed how the game was played, and created and stored a single initial game state, which would be transformed by submitted options. Instead of exporting an object that contained the entire game state, parts of the game state were only referenceable through function closures in the Option objects. This was for all practical purposes a strictly worse version of the second option. I came to realize that this was a violation of “separation of concerns”, the maxim that any unit of code (be it function or library or file) should do one thing and do it well. But my rules script was trying to do two things when really, it should lay down the rules and nothing more. It should describe how to create the initial game state, but should not actually do it.
+
+This is perhaps the most important design decision in this update, even though it doesn’t immediately seem like one. In my experience, the most important decisions are usually the ones that don’t even look like decisions. Learning to recognize these hidden opportunities is an important skill for any software engineer.
+
+So how do we proceed from here?
+
+There are groups today that push strongly for a functional programming approach in everything. And it does have its benefits. For example, the first option has several advantages over my original naive implementation:
+
+- Building test cases is much easier when the test case can supply an already built game state.
+- The rules file only has to be loaded and processed once, and several games can be run simultaneously.
+- The game state can be saved out to a file or data structure and loaded back in, allowing games to be paused and resumed, or a game to begin from a configuration other than its normal initial configuration.
+
+But these features are also possible with option 2, but the first option still has some benefits over the proposed second:
+
+- Making the game state object immutable means that a reference to the game state can be kept as a snapshot of the game at a particular point in time, without having to worry about the object being modified or having to create a deep copy of it. This is useful for recording purposes.
+- A player can simulate future outcomes from a particular game state without having to worry about mutating the game state or creating copies of it. This is useful for AI or for a user interface that lets a player experiment with future possible outcomes.
+
+But this method has several drawbacks, related to the process of creating a new game state from the existing one.
+
+- If a new game state object is created every time an option would change it, this can lead to lots of unnecessary object creations and destructions, a performance penalty that scales with the complexity of the game state. I refuse to just assume that game states can always be easily created.
+- Creating a new game state from an old one requires knowledge of how the game state is structured, and isn’t necessarily a trivial task.
+
+These two drawbacks are wholly dependant on how the game state object is represented internally. If we can devise a representation that can easily be instantiated from an old game state and an applied Option, without adding restrictions or complications to the process of creating a rules file, then the drawbacks are inconsequential, and it becomes better to take the functional programming approach.
+
+The key insight comes from recognizing that any game state is created by sequential **effects** to an initial game state, where an effect is the outcome of executing an option. It’s possible for us to represent the game state as this list of effects. If the list is a linked list, we can append new effects to the front of the list, creating the new game state in constant time. However, now every time part we want to read a value from the game state, we must iterate through the list until we find the relevant bit of information. We have traded a logarithmic construction time for a linear read time, and this is very likely a bad tradeoff. However, we can mitigate this by caching these reads in the most recent effect. Provided that a value in the game state is read with approximately regular frequency, the read will take constant time on average, and only values that are rarely read will take linear time. This seems like an acceptable tradeoff for the hassle of assembling game state objects of potentially dubious complexity (and possibly having to hand off some of this complexity to the rules file.)
+
+The remaining concern is whether this internal representation can be hidden from the rules file. We will see how this is done later.
+
+With all this research and planning behind us, let’s start writing code. We need to nail down an API to be used by the rules file to convey the rules for a game to the game engine. The best way to create a sensible and predictable API  is to create a use case first: let’s create a prototype rules file and see how we would instinctively want to express the rules for a simple game like Tic Tac Toe.
+
+The rules file is currently a coffeescript script that is loaded and executed in a special environment. The major downside is that this requires that the rules file be trusted, so this is by no means a final solution.
+
+What’s the most important part of a game? The players. So let’s tell the engine about the players.
